@@ -8,7 +8,7 @@ var whatsAppTextMessage = await MessageResource.CreateAsync(
     from: phoneNumberFrom, 
     to: phoneNumberTo,
     body: text);
-Console.WriteLine(whatsAppTextMessage.Sid);
+Console.WriteLine(JsonSerializer.Serialize(whatsAppTextMessage));
 
 // A WhatsApp media message can only contain one media attachment.
 // Any additional attachments will be ignored.
@@ -28,5 +28,5 @@ foreach (var item in media)
         from: phoneNumberFrom,
         to: phoneNumberTo,
         mediaUrl: url);
-    Console.WriteLine(whatsAppMediaMessage.Sid);
+    Console.WriteLine(JsonSerializer.Serialize(whatsAppMediaMessage));
 }
